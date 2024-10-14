@@ -4,6 +4,7 @@ import Tabs from './tabs';
 import ChatScreen from 'screens/chat';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import type {RootStackParamList} from 'typings/navigation';
+import NotificationScreen from 'screens/notification';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -30,6 +31,7 @@ const Navigation = () => {
             ),
           })}
         />
+        <Stack.Screen name="Notification" component={NotificationScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

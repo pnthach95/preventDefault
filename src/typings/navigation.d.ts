@@ -18,6 +18,7 @@ type MainBottomTabScreenProps<T extends keyof BottomTabList> = {
 type RootStackParamList = {
   Main: undefined;
   Chat: undefined;
+  Notification: undefined;
 };
 
 type RootStackScreenProps<T extends keyof RootStackParamList> =

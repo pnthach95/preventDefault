@@ -1,6 +1,9 @@
+import notifee from '@notifee/react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {useEffect} from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import HomeScreen from 'screens/home';
+import {handleNotification} from 'utils';
 import type {BottomTabList, RootStackScreenProps} from 'typings/navigation';
 
 const Tab = createBottomTabNavigator<BottomTabList>();
@@ -8,6 +11,14 @@ const NoOp = () => null;
 const ICON_SIZE = 24;
 
 const Tabs = ({navigation}: RootStackScreenProps<'Main'>) => {
+  useEffect(() => {
+    return notifee.onForegroundEvent(data => {
+      handleNotification(data, () => {
+        navigation.navigate('Notification');
+      });
+    });
+  }, []);
+
   return (
     <Tab.Navigator backBehavior="initialRoute">
       <Tab.Screen
