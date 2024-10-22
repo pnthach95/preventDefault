@@ -3,7 +3,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import Navigation from './navigation';
 import notifee, {AuthorizationStatus} from '@notifee/react-native';
 import {useEffect} from 'react';
-import {PermissionsAndroid, Platform} from 'react-native';
+import {PermissionsAndroid, Platform, StatusBar} from 'react-native';
 
 const requestMessagingPermission = async () => {
   if (Platform.OS === 'ios') {
@@ -49,6 +49,11 @@ const Routes = () => {
   return (
     <GestureHandlerRootView>
       <SafeAreaProvider>
+        <StatusBar
+          translucent
+          backgroundColor="transparent"
+          barStyle="dark-content"
+        />
         <Navigation />
       </SafeAreaProvider>
     </GestureHandlerRootView>

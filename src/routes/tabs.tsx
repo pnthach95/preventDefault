@@ -40,6 +40,7 @@ const Tabs = ({navigation}: RootStackScreenProps<'Main'>) => {
         }}
         name="NoOp"
         options={{
+          title: 'Chat',
           tabBarIcon: ({color}) => (
             <Icon color={color} name="home" size={ICON_SIZE} />
           ),
